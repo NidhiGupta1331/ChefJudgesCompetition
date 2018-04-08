@@ -1,0 +1,52 @@
+import java.util.Scanner;
+class JudgesCompetition
+{
+	public static void main(String[] args) 
+	{
+		int j;
+		Scanner in = new Scanner(System.in);
+		int t=in.nextInt();//For no. of test cases
+		for(j=0;j<t;j++)
+		{
+		int i,max=0,sum1=0,sum2=0;
+		int n= in.nextInt();//for No. of inputs
+		int[] alice=new int[n];
+		int[] bob=new int[n];
+		for(i=0;i<n;i++)
+		{	alice[i]=in.nextInt();//alice time
+			if(alice[i]>max)
+				max=alice[i];
+		}
+		for(i=0;i<n;i++)
+		{	if(alice[i]==max)
+			{	alice[i]=0;
+				break;
+			}
+		}
+		for(i=0;i<alice.length;i++)
+			sum1+=alice[i];
+		max=0;
+		for(i=0;i<n;i++)
+		{	bob[i]=in.nextInt();//Bob time
+			if(bob[i]>max)
+				max=bob[i];
+		}
+		for(i=0;i<n;i++)
+		{	if(bob[i]==max)
+			{	bob[i]=0;
+				break;
+			}
+		}
+		for(i=0;i<bob.length;i++)
+			sum2+=bob[i];
+ 
+		if(sum1<sum2)
+			System.out.println("Alice");
+		else if(sum2<sum1)
+			System.out.println("Bob");
+		else
+			System.out.println("Draw");
+	}
+			
+	}
+}
